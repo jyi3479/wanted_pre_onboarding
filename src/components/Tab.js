@@ -48,18 +48,17 @@ const TabBox = styled.div`
   width: 420px;
   height: 30px;
 
-  border-bottom: 1.5px solid #bdbdbd;
+  border-bottom: 2px solid #bdbdbd;
 `;
 
 const ClickBox = styled.div`
   position: absolute;
   width: 140px;
   height: 100%;
-  border-bottom: 1.5px solid #3db7cc;
+  border-bottom: 2px solid #3db7cc;
 
   transform: ${(props) => (props.toggle === "potato" ? "translateX(0%)" : props.toggle === "sweet" ? "translateX(140px)" : "translateX(280px)")};
   transition: all 0.35s linear;
-  z-index: 1;
 `;
 
 const ToggleBtn = styled.button`
@@ -72,7 +71,6 @@ const ToggleBtn = styled.button`
   color: ${(props) => (props.toggle ? "#5D5D5D" : "#8C8C8C")};
   font-weight: bold;
 
-  z-index: 5;
   cursor: pointer;
 `;
 export default Tap;
