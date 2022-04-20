@@ -8,11 +8,11 @@ function App() {
   return (
     <div className="App">
       <Toggle />
-      <hr style={{ margin: "20px 0" }} />
+
       <Tap />
-      <hr style={{ margin: "20px 0" }} />
+
       {/* <Slider /> */}
-      <hr style={{ margin: "20px 0" }} />
+
       <Input />
       <hr />
       <Dropdown />

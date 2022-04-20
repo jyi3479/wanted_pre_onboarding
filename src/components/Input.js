@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { ReactComponent as Check } from "../image/check.svg";
+import { ReactComponent as Visible } from "../image/visible.svg";
 
 const Input = () => {
   const [isPrivate, setIsPrivate] = useState(false);
@@ -18,12 +20,16 @@ const Input = () => {
       <InputBox>
         <Label>E-mail</Label>
         <InputField placeholder="E-mail" onBlur={checkedEmail} />
-        {/* <Icon>@@</Icon> */}
+        <IconBox>
+          <Check />
+        </IconBox>
       </InputBox>
       <InputBox>
         <Label>password</Label>
         <InputField placeholder="password" type={isPrivate ? "password" : ""} />
-        <button onClick={clickedPrivate}>보여주기</button>
+        <IconBox>
+          <Visible className="visible" onClick={clickedPrivate} />
+        </IconBox>
       </InputBox>
     </>
   );
@@ -52,6 +58,15 @@ const InputField = styled.input`
 
   &::placeholder {
     color: rgba(124, 130, 136, 0.5);
+  }
+`;
+
+const IconBox = styled.div`
+  svg {
+    fill: #ccc;
+  }
+  .visible {
+    cursor: pointer;
   }
 `;
 
