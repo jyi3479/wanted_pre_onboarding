@@ -70,10 +70,4 @@ const IconBox = styled.div`
   }
 `;
 
-const Icon = styled.span`
-  position: relative;
-  width: 5px;
-  right: 0;
-`;
-
 export default Input;
