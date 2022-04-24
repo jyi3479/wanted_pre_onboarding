@@ -6,7 +6,7 @@ import { ReactComponent as Invisible } from "../image/noneVisible.svg";
 
 const Input = () => {
   const [isEmail, setIsEmail] = useState(false);
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [isPrivate, setIsPrivate] = useState(true);
   const clickedPrivate = () => {
     setIsPrivate(!isPrivate);
@@ -14,20 +14,22 @@ const Input = () => {
 
   const checkedEmail = (email) => {
     const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    // 형식에 맞는 경우 true 리턴
 
     return regExp.test(email);
   };
 
   const blurEmailChecked = (e) => {
-    setIsError(checkedEmail(e.target.value));
+    setIsError(!checkedEmail(e.target.value));
     if (!e.target.value) {
-      setIsError(true);
+      setIsError(false);
     }
   };
 
   const changeEmailChecked = (e) => {
     setIsEmail(checkedEmail(e.target.value));
+    if (!e.target.value) {
+      setIsError(false);
+    }
   };
 
   return (
@@ -38,7 +40,7 @@ const Input = () => {
         <IconBox isEmail={isEmail}>
           <Check />
         </IconBox>
-        <Warning isError={isError}>Invalid e-mail address.</Warning>
+        {isError && <Warning>Invalid e-mail address.</Warning>}
       </InputBox>
 
       <InputBox>
@@ -66,6 +68,8 @@ const InputField = styled.input`
   width: 230px;
   height: 25px;
 
+  padding-left: 5px;
+
   border: 1px solid #bdbdbd;
   border-radius: 3px;
   &:focus {
@@ -83,7 +87,7 @@ const Warning = styled.p`
   bottom: -23px;
 
   font-size: 10px;
-  ${(props) => (props.isError ? `display : none;` : `color: red;`)}
+  color: red;
 `;
 
 const IconBox = styled.div`

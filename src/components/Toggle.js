@@ -35,23 +35,28 @@ const ToggleBox = styled.div`
   position: relative;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   width: 300px;
-  height: 30px;
+  height: 35px;
   background-color: #d3d3d3;
-  border-radius: 15px;
+  border: red;
+  border-radius: 20px;
 `;
 
 const ClickBox = styled.div`
   position: absolute;
-  width: 50%;
-  height: 100%;
-  border: none;
+  left: 2px;
+
+  height: calc(100% - 3px);
+  width: calc(50% - 2px);
+
   border-radius: 15px;
   background-color: #fff;
+
   transform: ${(props) => (props.toggle ? "translateX(0%)" : "translateX(100%)")};
-  transition: all 0.35s linear;
+  transition: all 0.2s linear;
   z-index: 1;
 `;
 

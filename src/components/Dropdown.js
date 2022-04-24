@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Arrow } from "../image/arrow.svg";
 
@@ -16,10 +16,9 @@ const Dropdown = () => {
     "WEMIXUSD.PERP",
   ];
   const [category, setCategory] = useState("");
-  const [active, setActive] = useState(false); // select 활성화 여부
+  const [active, setActive] = useState(false);
   const [searchTerm, setSearchterm] = useState("");
-  const [targetList, setTargetList] = useState(list);
-  // 드롭박스 - 라벨을 클릭시 옵션 목록이 열림/닫힘
+
   const selectClick = () => {
     setActive(!active);
   };
@@ -33,40 +32,38 @@ const Dropdown = () => {
   };
 
   return (
-    <>
-      <Box>
-        <Select className={active ? "active" : category ? "ok" : ""}>
-          <Arrow />
-          <button
-            className="label"
-            onClick={() => {
-              selectClick();
-            }}
-          >
-            {category ? category : "All Symbols"}
-          </button>
-          <ul className="optionList" id={active ? "active" : ""}>
-            <input onChange={searchList}></input>
-            <li className="optionItem" onClick={optionClick}>
-              All Symbols
-            </li>
-            {list
-              .filter((el) => {
-                if (searchTerm.includes(" ")) {
-                  return el;
-                } else if (el.toLowerCase().includes(searchTerm.toLowerCase())) {
-                  return el;
-                }
-              })
-              .map((el) => (
-                <li key={el} className="optionItem" onClick={optionClick}>
-                  {el}
-                </li>
-              ))}
-          </ul>
-        </Select>
-      </Box>
-    </>
+    <Box>
+      <Select className={active ? "active" : category ? "ok" : ""}>
+        <Arrow />
+        <button
+          className="label"
+          onClick={() => {
+            selectClick();
+          }}
+        >
+          {category ? category : "All Symbols"}
+        </button>
+        <ul className="optionList" id={active ? "active" : ""}>
+          <input onChange={searchList}></input>
+          <li className="optionItem" onClick={optionClick}>
+            All Symbols
+          </li>
+          {list
+            .filter((el) => {
+              if (searchTerm.includes(" ")) {
+                return el;
+              } else if (el.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return el;
+              }
+            })
+            .map((el) => (
+              <li key={el} className="optionItem" onClick={optionClick}>
+                {el}
+              </li>
+            ))}
+        </ul>
+      </Select>
+    </Box>
   );
 };
 
@@ -110,7 +107,6 @@ const Select = styled.div`
   }
 
   &.ok {
-    border-bottom: 1px solid #7c8288;
     .label {
       color: #030102;
     }

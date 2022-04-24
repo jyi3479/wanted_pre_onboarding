@@ -7,7 +7,9 @@ const Slider = () => {
 
   return (
     <Container>
-      <ValueBox>{value} % </ValueBox>
+      <ValueBox>
+        <span>{value} %</span>
+      </ValueBox>
       <Bar>
         {valueList.map((el) => (
           <Circle key={el} isFull={value > el} />
@@ -42,12 +44,19 @@ const Container = styled.div`
 `;
 
 const ValueBox = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+
   width: 100%;
   height: 35px;
+
   border: 1px solid #bdbdbd;
   border-radius: 3px;
 
-  text-align: right;
+  span {
+    margin-right: 10px;
+  }
 `;
 
 const Bar = styled.div`
@@ -56,8 +65,8 @@ const Bar = styled.div`
   width: 100%;
   height: 8px;
   border-radius: 8px;
-  display: flex; // HighLight와 Circle이 한 줄에 붙어있게 하도록.
-  align-items: center; // 수직으로는 중앙에 배치
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 10px auto;
 `;
@@ -84,10 +93,10 @@ const TargetBar = styled.input`
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    border: 1.5px solid white;
+    border: 2px solid white;
     background: blue;
     box-shadow: 1px 1px 7px grey;
     cursor: pointer;
@@ -103,6 +112,8 @@ const ButtonBox = styled.div`
     width: 30px;
     border: none;
     border-radius: 5px;
+
+    padding: 3px;
 
     font-size: 10px;
     text-align: center;

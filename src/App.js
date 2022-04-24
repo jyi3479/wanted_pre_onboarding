@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Dropdown from "./components/Dropdown";
 import Input from "./components/Input";
 import Slider from "./components/Slider";
-import Tap from "./components/Tab";
+import Tab from "./components/Tab";
 import Toggle from "./components/Toggle";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         <Toggle />
       </Box>
       <Box>
-        <Title>Tap</Title>
-        <Tap />
+        <Title>Tab</Title>
+        <Tab />
       </Box>
       <Box>
         <Title>Slider</Title>
@@ -40,7 +40,6 @@ const Container = styled.div`
 `;
 
 const Box = styled.div`
-  border: 1px solid grey;
   margin: 10px;
   padding: 10px;
 `;

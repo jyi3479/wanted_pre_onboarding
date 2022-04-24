@@ -1,39 +1,39 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Tap = () => {
-  const [toggle, setToggle] = useState("potato");
-  const clickedToggle = (status) => {
-    setToggle(status);
+const Tab = () => {
+  const [tab, setTab] = useState("potato");
+  const clickedTab = (status) => {
+    setTab(status);
   };
   return (
     <>
       <TabBox>
-        <ClickBox toggle={toggle} />
-        <ToggleBtn
+        <ClickBox tab={tab} />
+        <TabBtn
           onClick={() => {
-            clickedToggle("potato");
+            clickedTab("potato");
           }}
-          toggle={toggle === "potato"}
+          tab={tab === "potato"}
         >
           감자
-        </ToggleBtn>
-        <ToggleBtn
+        </TabBtn>
+        <TabBtn
           onClick={() => {
-            clickedToggle("sweet");
+            clickedTab("sweet");
           }}
-          toggle={toggle === "sweet"}
+          tab={tab === "sweet"}
         >
           고구마
-        </ToggleBtn>
-        <ToggleBtn
+        </TabBtn>
+        <TabBtn
           onClick={() => {
-            clickedToggle("curry");
+            clickedTab("curry");
           }}
-          toggle={toggle === "curry"}
+          tab={tab === "curry"}
         >
           카레라이스
-        </ToggleBtn>
+        </TabBtn>
       </TabBox>
     </>
   );
@@ -57,20 +57,20 @@ const ClickBox = styled.div`
   height: 100%;
   border-bottom: 2px solid #3db7cc;
 
-  transform: ${(props) => (props.toggle === "potato" ? "translateX(0%)" : props.toggle === "sweet" ? "translateX(140px)" : "translateX(280px)")};
-  transition: all 0.35s linear;
+  transform: ${(props) => (props.tab === "potato" ? "translateX(0%)" : props.tab === "sweet" ? "translateX(140px)" : "translateX(280px)")};
+  transition: all 0.2s linear;
 `;
 
-const ToggleBtn = styled.button`
+const TabBtn = styled.button`
   width: 50%;
   height: 100%;
 
   background-color: transparent;
   border: none;
 
-  color: ${(props) => (props.toggle ? "#5D5D5D" : "#8C8C8C")};
+  color: ${(props) => (props.tab ? "#5D5D5D" : "#8C8C8C")};
   font-weight: bold;
 
   cursor: pointer;
 `;
-export default Tap;
+export default Tab;
