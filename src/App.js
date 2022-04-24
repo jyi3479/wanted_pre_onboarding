@@ -9,6 +9,10 @@ function App() {
   return (
     <Container>
       <Box>
+        <Title>Dropdown</Title>
+        <Dropdown />
+      </Box>
+      <Box>
         <Title>Toggle</Title>
         <Toggle />
       </Box>
@@ -18,16 +22,12 @@ function App() {
       </Box>
       <Box>
         <Title>Slider</Title>
-        {/* <Slider /> */}
+        <Slider />
       </Box>
 
       <Box>
         <Title>Input</Title>
         <Input />
-      </Box>
-      <Box>
-        <Title>Dropdown</Title>
-        <Dropdown />
       </Box>
     </Container>
   );
@@ -40,7 +40,9 @@ const Container = styled.div`
 `;
 
 const Box = styled.div`
-  margin: 20px;
+  border: 1px solid grey;
+  margin: 10px;
+  padding: 10px;
 `;
 
 const Title = styled.p`
