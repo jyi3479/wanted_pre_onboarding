@@ -78,12 +78,10 @@ isError가 true이면 && 연산자를 이용하여 오류메세지가 조건부 
 
 ### 구현 방법
 드롭다운 활성화 여부를 active라는 state로 관리하였고, 누르면 active가 true로 되면서 선택창이 활성화되도록 구현하였습니다.
-선택창이 활성화되는 것은 active가 false이면 transform : scaleY(0)이었다가,
-true가 되면 transform : scaleY(1)과 opacity : 1 을 통해 선택창이 밑으로 보여지도록 구현했습니다.
 
 선택 리스트 중 아무거나 선택하면 선택된 항목으로 바뀌도록 category라는 state로 관리하여 setCategory(e.target.innerText)로 업데이트 시켜주었습니다.
 
-키워드 필터 기능은 기본 선택 리스트를 const로 선언해두고, 이 리스트를 filter라는 매서드를 사용하여서 input에서 입력하는 데이터가 포함되어있는 항목들만
+키워드 필터 기능은 기본 선택 리스트를 const로 선언해두고, 이 리스트를 filter라는 매서드를 사용하여서 input에서 입력하는 데이터(searchTerm이라는 state로 관리)가 포함되어있는 항목들만
 보이도록 구현하였습니다.
 ```javascript
 list.filter((el) => {
@@ -96,9 +94,11 @@ list.filter((el) => {
 ```
 
 ### 어려웠던 점
-
+선택창이 펼쳐지는 부분에서 밑으로 펼쳐지도록 하는 과정에서 시간이 걸렸습니다.
 
 ### 해결 과정
-
+드롭다운 활성화 여부를 active라는 state로 관리하였고, 누르면 active가 true로 되면서 선택창이 활성화되도록 구현하였습니다.
+선택창이 활성화되는 것은 active가 false이면 transform : scaleY(0)이었다가,
+true가 되면 transform : scaleY(1)과 opacity : 1 을 통해 선택창이 밑으로 보여지도록 구현했습니다.
 
 
