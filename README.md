@@ -99,6 +99,6 @@ list.filter((el) => {
 ### 해결 과정
 드롭다운 활성화 여부를 active라는 state로 관리하였고, 누르면 active가 true로 되면서 선택창이 활성화되도록 구현하였습니다.
 선택창이 활성화되는 것은 active가 false이면 transform : scaleY(0)이었다가,
-true가 되면 transform : scaleY(1)과 opacity : 1 을 통해 선택창이 밑으로 보여지도록 구현했습니다.
+true가 되면 transform : scaleY(1)과 opacity : 1 을 통해 선택창이 밑으로 보여지도록 transition 애니메이션도 추가하여 구현했습니다.
 
 
